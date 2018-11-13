@@ -1,14 +1,14 @@
 import React from 'react';
 import { Layout, Menu, Popover } from 'antd';
 import { NavLink } from 'react-router-dom';
-import ajax from '@/utils/ajax';
+import ajax from "@/utils/ajax";
 import styles from './Header.scss';
 
 const { Item } = Menu;
 
 class Header extends React.Component {
-    state = {
-         visible: false,
+     state = {
+       visible: false,
     }
 
     getLogoClass = (collapsed, { logo, dark, darkSmall }) => `${logo} ${!collapsed ? dark : darkSmall}`;

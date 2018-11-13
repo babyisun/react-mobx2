@@ -6,7 +6,7 @@ import { Layout } from 'antd';
 
 const Footer = () => (
   <Layout.Footer>
-    © 2018 Performance. Created by SF.
+    © 2018 Performance. Created by North.
   </Layout.Footer>
 );
 

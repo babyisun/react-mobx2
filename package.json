@@ -27,6 +27,7 @@
     "eslint": "5.6.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-react-app": "^3.0.5",
+    "eslint-formatter-friendly-cn": "^5.0.2",
     "eslint-loader": "2.1.1",
     "eslint-plugin-flowtype": "2.50.1",
     "eslint-plugin-import": "2.14.0",
@@ -77,7 +78,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "build:test": "GENERATE_SOURCEMAP=true NODE_ENV=test BABEL_ENV=production node scripts/build.js",
+    "build:test": "GENERATE_SOURCEMAP=false NODE_ENV=test BABEL_ENV=production node scripts/build.js",
     "mock": "nodemon --watch mock mock/server.js",
     "start:mock": "concurrently \"nodemon --watch mock mock/server.js\" \"node scripts/start.js\""
   },

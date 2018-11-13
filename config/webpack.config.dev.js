@@ -14,6 +14,7 @@ const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent')
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 // const ManifestPlugin = require('webpack-manifest-plugin');
+const formatterFriendly = require('eslint-formatter-friendly-cn');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
@@ -177,7 +178,7 @@ module.exports = {
     strictExportPresence: true,
     rules: [
       // Disable require.ensure as it's not a standard language feature.
-      { parser: { requireEnsure: false } },
+      // { parser: { requireEnsure: false } },
 
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
@@ -187,9 +188,10 @@ module.exports = {
         use: [
           {
             options: {
-              formatter: require.resolve('react-dev-utils/eslintFormatter'),
-              eslintPath: require.resolve('eslint'),
-              
+              fix: true,
+              // formatter: require.resolve('react-dev-utils/eslintFormatter'),
+              formatter: formatterFriendly,
+              // eslintPath: require.resolve('eslint'),
             },
             loader: require.resolve('eslint-loader'),
           },

@@ -8,14 +8,15 @@ import styles from './Header.scss';
 @inject('baseStore')
 @observer
 class Header extends React.Component {
+
+    onExit = () => { 
+      const url = "https://uuap.sftcwl.com/ucenter/userlogin?redirect_url=REPLACEHOST";
+      const redirectUrl = url.replace('REPLACEHOST',
+            encodeURIComponent(`${window.location.origin}/`));
+         return window.location.replace(redirectUrl);
+    };
     getLogoClass = (collapsed, { logo, dark, darkSmall }) => `${logo} ${!collapsed ? dark : darkSmall}`;
 
-    onExit = () => {
-      const url = 'https://uuap.sftcwl.com/ucenter/userlogin?redirect_url=REPLACEHOST';
-      const redirectUrl = url.replace('REPLACEHOST',
-        encodeURIComponent(`${window.location.origin}/`));
-      return window.location.replace(redirectUrl);
-    };
 
     render() {
       const { collapsed, baseStore } = this.props;

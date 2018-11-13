@@ -191,7 +191,7 @@ module.exports = {
               fix: true,
               // formatter: require.resolve('react-dev-utils/eslintFormatter'),
               formatter: formatterFriendly,
-              // eslintPath: require.resolve('eslint'),
+              eslintPath: require.resolve('eslint'),
             },
             loader: require.resolve('eslint-loader'),
           },

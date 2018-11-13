@@ -99,18 +99,16 @@ $menu-item-active-bg: #1890ff;
                                     height: 50px;
                                     margin-top: 5px;
                                     margin-bottom: 5px;
-                                    padding-left: 50px !important;
+                                    padding-left: 40px !important;
                                     padding-right: 30px !important;
                                     line-height: 50px;
                                 }
-                                /* //二级菜单
                                 .ant-menu-sub .ant-menu-item a {
                                     padding-left: 65px !important;
-                                } 
-                                // 三级菜单
+                                } //  4.13 yc 修改支持3级菜单
                                 .ant-menu .ant-menu-sub .ant-menu-item a {
                                     padding-left: 95px !important;
-                                } */
+                                }
                             }
                             .ant-menu-item {
                                 line-height: 50px;
@@ -120,23 +118,22 @@ $menu-item-active-bg: #1890ff;
                                 padding-left: 0 !important;
                                 padding-right: 0 !important;
                                 &.ant-menu-item-selected {
-                                    background-color: transparent;
+                                    // background-color: transparent;
                                     color: $menu-item-color;
-                                    // i {
-                                    //     color: #fff;
-                                    // }
+                                    i {
+                                        color: #fff;
+                                    }
                                 }
                                 a {
-                                    // line-height: inherit;
+                                    line-height: inherit;
                                     height: 50px;
-                                    // text-align: center;
-                                    padding-left: 72px;
-                                    // padding-right: 56px;
+                                    // padding-left: 65px;
+                                    padding-right: 30px;
                                 }
                             }
                         }
                     }
-                    /* .ant-layout-sider-trigger i {
+                    .ant-layout-sider-trigger i {
                         vertical-align: middle;
                         &::before,
                         &:after {
@@ -153,7 +150,7 @@ $menu-item-active-bg: #1890ff;
                         &:after {
                             transform: rotate(-135deg) translateX(-3px);
                         }
-                    } */
+                    }
                     &.ant-layout-sider-collapsed {
                         .ant-layout-sider-trigger i {
                             &::before {
@@ -166,7 +163,7 @@ $menu-item-active-bg: #1890ff;
                     }
                 }
                 .ant-layout {
-                    margin-left: 210px;
+                    margin-left: 260px;
                     background: #f2f2f2;
                     transition: margin-left .2s;
                     .ant-layout-content {
@@ -188,17 +185,6 @@ $menu-item-active-bg: #1890ff;
             .ant-breadcrumb {
                 margin-bottom: 10px; // font-size: 12px;
             }
-        }
-        .ant-table .ant-table-row td i{
-            font-size: 20px; 
-            margin-right: 5px;
-            cursor: pointer;
-            color: #888;
-            transition: all 0.4s ease-out;
-        &:hover{
-            transform: scale(1.2);
-            color: #000;
-        }
         }
     }
     .ant-menu-submenu .ant-menu {

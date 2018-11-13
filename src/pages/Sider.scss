@@ -10,9 +10,6 @@ $menu-item-active-bg: #1890ff;
                 background-repeat: no-repeat;
             }
             .ant-menu-submenu {
-                .ant-menu-submenu-title{
-                    span span{padding-left: 6px;}
-                }
                 &:hover,
                 &.ant-menu-submenu-selected {
                     color: #fff !important;
@@ -54,7 +51,7 @@ $menu-item-active-bg: #1890ff;
                 i {
                     line-height: 50px;
                     height: 50px;
-                    padding-left: 50px;
+                    padding-left: 40px;
                     // top: 16px;
                     left: 0;
                     z-index: 1;
@@ -91,12 +88,4 @@ $menu-item-active-bg: #1890ff;
         border-radius: 50%;
         transform: translate3d(0, -8px, 0);
     }
-}
-
-:global {
-.ant-menu-inline-collapsed-tooltip{
-    i.iconfont{
-        display: none;
-    }
-}
 }

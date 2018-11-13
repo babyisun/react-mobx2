@@ -6,17 +6,33 @@ import {
 
 
 const redirect = (url) => {
-  const redirectUrl = url.replace('REPLACEHOST',
-    encodeURIComponent(`${window.location.origin}/`));
+  const redirectUrl = url.replace('%2FPLACEHOLDER%2F',
+    encodeURIComponent(`${window.location.origin}/crmanage`));
   return window.location.replace(redirectUrl);
 };
 const handleRedirect = {
-  10005: (data) => {
-    redirect(data); // 未登录跳转
-  },
-  // 310004: (data) => {
-  //   message.error('您的账号在审核中，请稍后登录！', () => redirect(data.url));
+  // 110003: data => {
+  //     redirect(data.url); //未登录跳转
   // },
+  // 110006: data => {
+  //     message.error('您的账号被禁用，请重新登录！', () => redirect(data.url));
+  // },
+  // 110008: () => {
+  //     window.location.replace(`${window.location.origin}/crmanage`);
+  // },
+  310001: () => {
+    // message.error('无权限进行此操作');
+    window.location.hash = 'NoPower'; // redirect(data.url));
+  },
+  310002: (data) => {
+    message.error('您的账号被禁用，请重新登录！', () => redirect(data.url));
+  },
+  310003: (data) => {
+    redirect(data.url); // 未登录跳转
+  },
+  310004: (data) => {
+    message.error('您的账号在审核中，请稍后登录！', () => redirect(data.url));
+  },
 };
 
 const ajax = axios.create({
@@ -33,16 +49,16 @@ ajax.interceptors.response.use((response) => {
     errno,
     errmsg,
     data,
-    st,
+    servertime,
   } = response.data;
-  // 接口正常，返回 { errno, errmsg, data }
+    // 接口正常，返回 { errno, errmsg, data }
   if (response.status >= 200 && response.status < 300) {
     // 接口错误，404、500 等，返回错误
     if (errno === 0) {
       return {
         success: true,
         data,
-        st,
+        servertime,
       };
     }
     if (handleRedirect[errno]) {

@@ -14,7 +14,7 @@ const MESSAGE = {
  * @param  {boolean} circle        详情页加载 圆形+横条模拟 <Launcher loading circle />
  * @param  {object} message        title:显示的文字，content：显示的内容提示 <Launcher message={MESSAGE.FROZEN} />
  */
-const Launcher = ({ loading, circle, message, small }) => {
+const Launcher = ({ text, loading, circle, message }) => {
   if (message) {
     return (
       <div className={styles.message}>
@@ -31,7 +31,11 @@ const Launcher = ({ loading, circle, message, small }) => {
     return (<div className={[styles.loading, circle ? styles.circle : ''].join(' ')} />);
   }
   return (
-    <div className={`${styles.loadCircle} ${small ? styles.small : ''}`} />
+    <div className={`${styles.loadCircle} ${text ? styles.text : styles.circle}`}>
+      <span>
+        {text || 'Loading...'}
+      </span>
+    </div>
   );
 };
 

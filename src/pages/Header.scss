@@ -2,29 +2,27 @@
     display: flex;
     .logo {
         margin-bottom: 0;
-        // width: 200px;
-        // overflow: hidden;
         a {
             display: block;
             height: 70px;
             text-indent: -9999px;
             transition: width .2s;
         }
-        // &.light a,
+        &.light a,
         &.dark a {
-            width: 210px;
-            background: center center / 184px 46px no-repeat;
+            width: 260px;
+            background: center center / 200px 32px no-repeat;
         }
-        // &.light a {
-        //     background-image: url('../assets/basicLayout/logo_light.png');
-        // }
+        &.light a {
+            background-image: url('../assets/basicLayout/logo_light.png');
+        }
         &.dark a {
             background-color: #002140;
             background-image: url('../assets/basicLayout/logo_dark.png');
         }
         &.dark-small a {
             width: 80px;
-            background: #002140 url('../assets/basicLayout/logo_dark_small.png') center / 38px no-repeat;
+            background: #002140 url('../assets/basicLayout/logo_dark_small.png') center / 32px no-repeat;
         }
     }
     .info {
@@ -53,21 +51,11 @@
         .tip {
             background-image: url('../assets/basicLayout/tip.png');
         }
+        .qrCode {
+            background-image: url('../assets/basicLayout/qr_code.png');
+        }
         .download {
             background-image: url('../assets/basicLayout/download.png');
-        }
-        .name{
-            span{
-                padding: 0 20px 0 0;
-            }
-            i{
-                cursor: pointer;
-                display: inline-block;
-                &:hover{
-                    font-weight: bold;
-                    transform: scale(1.1);
-                }
-            }
         }
         .avatar {
             height: 36px;

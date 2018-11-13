@@ -20,7 +20,6 @@ const load = (folder, file, store) => Loadable({
   },
 
   loading: (props) => {
-    // console.log(props, '11212');
     const { error } = props;
     if (error) return <Launcher message={{ title: 'Error', content: error.message }} />;
     return <Launcher />;
@@ -44,7 +43,7 @@ const load = (folder, file, store) => Loadable({
     }
     return <Component stores={stores} {...props} />;
   },
-  // delay: 1000,
+  //   delay: 1000,
   // timeout: 3000,
 });
 

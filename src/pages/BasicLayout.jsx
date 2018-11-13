@@ -5,7 +5,7 @@ import { observer, inject } from 'mobx-react';
 // 底层ui组件引用
 import { Layout } from 'antd';
 import { withRouter } from 'react-router-dom';
-import { Launcher } from '@/components/Common/Launcher';
+// import { Launcher } from '@/components/common/Launcher';
 // 业务组件引用
 // import router from '../router';
 import Header from './Header';
@@ -26,7 +26,7 @@ class BasicLayout extends React.Component {
   }
 
   componentDidMount() {
-    this.props.baseStore.getUser();
+    // console.log(this.props);
   }
 
   onCollapse = (collapsed) => {
@@ -46,7 +46,7 @@ class BasicLayout extends React.Component {
           <Layout>
             <Content className={styles.content}>
               {/* <Path data={history.location.pathname} /> */}
-              {this.props.baseStore.getUserLoading ? <Launcher /> : children}
+              {children}
             </Content>
             <Footer />
           </Layout>

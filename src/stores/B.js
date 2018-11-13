@@ -4,11 +4,45 @@ import {
 } from 'mobx';
 
 const SUFFIX = { LOADING: 'Loading', DATA: 'Data' };
+// 不成熟方案
+/* export const asyncAction = (currClass, currAction) => {
+  const actionName = currAction.replace('async_', '');
+  extendObservable(currClass, {
+    [`${actionName}${SUFFIX.LOADING}`]: false,
+    [`${actionName}${SUFFIX.DATA}`]: null,
+    // loading: {
+    //   [actionName]: false,
+    // },
+    // data: {
+    //   [actionName]: null,
+    // },
+  });
+  const old = currClass[currAction];
+  currClass[currAction] = async () => {
+    runInAction(() => {
+      currClass[`${actionName}${SUFFIX.LOADING}`] = true;
+    });
+    const data = await old();
+    if (data && data.success) {
+      runInAction(() => {
+        currClass[`${actionName}${SUFFIX.DATA}`] = data.data;
+        currClass[`${actionName}${SUFFIX.LOADING}`] = false;
+      });
+    } else {
+      runInAction(() => {
+        currClass[`${actionName}${SUFFIX.LOADING}`] = false;
+      });
+    }
+  };
+}; */
 
 export const asyncAction = (currClass, actionName) => {
   extendObservable(currClass, {
     [`${actionName}${SUFFIX.LOADING}`]: false,
-    // [`${actionName}${SUFFIX.DATA}`]: null,
+    [`${actionName}${SUFFIX.DATA}`]: null,
+    // loading: {
+    //   [actionName]: false,
+    // },
   });
   const old = currClass[actionName];
   currClass[actionName] = async (...args) => {
@@ -20,6 +54,16 @@ export const asyncAction = (currClass, actionName) => {
       currClass[`${actionName}${SUFFIX.LOADING}`] = false;
     });
     return data;
+    /* if (data && data.success) {
+      runInAction(() => {
+        currClass[`${actionName}${SUFFIX.DATA}`] = data.data;
+        currClass[`${actionName}${SUFFIX.LOADING}`] = false;
+      });
+    } else {
+      runInAction(() => {
+        currClass[`${actionName}${SUFFIX.LOADING}`] = false;
+      });
+    } */
   };
 };
 

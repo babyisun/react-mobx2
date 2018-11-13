@@ -2,12 +2,10 @@ import {
   observable,
   configure,
   action,
-  runInAction,
+  // runInAction,
   // extendObservable,
 } from 'mobx';
 // import moment from 'moment';
-import ajax from '@/utils/ajax';
-// import { loading } from '@/utils/decorator';
 import { asyncAction } from './B';
 
 configure({
@@ -28,20 +26,14 @@ export default class BaseStroe {
 
     @observable user = null;
 
-    @observable getUserLoading=false;
-
-    @action.bound async getUser() {
-      this.getUserLoading = true;
-      const data = await ajax.get('/sfanalyzer/user/checklogin');
-      if (data && data.success && data.data) {
-        runInAction(() => {
-          this.user = data.data;
-          this.getUserLoading = false;
-        });
-      }
-    }
+    @observable privilege = [100, 101];// 模拟数据
 
     render() {
       this.version = +new Date();
+    }
+
+    // 验证是否有权限
+    @action.bound hasAuth(code) {
+      return this.privilege && this.privilege.includes(code);
     }
 }

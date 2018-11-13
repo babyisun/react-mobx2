@@ -185,6 +185,13 @@ module.exports = {
       {
         test: /\.(js|mjs|jsx)$/,
         enforce: 'pre',
+        // exclude: /node_modules/,
+        // loader: 'eslint-loader',
+        // options: {
+        //   fix: true,
+        //   formatter: formatterFriendly,
+        //   eslintPath: require.resolve('eslint'),
+        // },
         use: [
           {
             options: {

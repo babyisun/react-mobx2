@@ -7,8 +7,8 @@ import styles from './Header.scss';
 const { Item } = Menu;
 
 class Header extends React.Component {
-      state = {
-       visible: false,
+    state = {
+         visible: false,
     }
 
     getLogoClass = (collapsed, { logo, dark, darkSmall }) => `${logo} ${!collapsed ? dark : darkSmall}`;
@@ -18,7 +18,7 @@ class Header extends React.Component {
     }
 
     tebAccount = () => {
-      ajax.get('/account/logout').then(data => {
+      ajax.get("/account/logout").then(data => {
         // storage.clear();
         const loginUrl = data.data.url.replace('%2FPLACEHOLDER%2F',
           encodeURIComponent(`${window.location.origin}/crmanage`));

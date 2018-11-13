@@ -1,0 +1,27 @@
+.FilterForm {
+    :global {
+      .ant-row {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 25px;
+      }
+      .ant-form-item-label {
+        width: 130px;
+        padding-right: 10px;
+        box-sizing: border-box;
+        overflow: visible;
+      }
+      .ant-form-item {
+        display: flex;
+      }
+      .ant-form-item-control-wrapper {
+        flex: 1;
+      }
+    }
+}
+
+
+
+  

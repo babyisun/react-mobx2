@@ -1,0 +1,47 @@
+.FilterForm {
+    //padding: 10px 0;
+
+    &:hover {
+        background-color: #f9f9f9;
+
+        :global {
+            .ant-row i.anticon-close {
+                display: inline-block;
+            }
+        }
+    }
+
+    :global {
+        .ant-row {
+            margin-left: 0;
+            margin-right: 0;
+
+            // padding-left: 20px;
+            // padding-right: 20px;
+            margin-bottom: 15px;
+            i.anticon-close {
+                vertical-align: -0.9em;
+                cursor: pointer;
+                display: none;
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        .ant-form-item-label {
+            width: 90px;
+            box-sizing: border-box;
+            overflow: visible;
+        }
+
+        .ant-form-item {
+            display: flex;
+        }
+
+        .ant-form-item-control-wrapper {
+            flex: 1;
+        }
+    }
+}

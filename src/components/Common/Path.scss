@@ -1,0 +1,16 @@
+.path {
+    // margin-bottom: 12px;
+    :global {
+        span {
+            color: rgba(0, 0, 0, 0.65);
+            >.ant-breadcrumb-link {
+                a{
+                    color: rgba(0, 0, 0, 0.55);
+                }
+                a:hover {
+                    color: #4768fd;
+                }
+            }
+        }
+    }
+}

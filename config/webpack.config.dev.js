@@ -18,7 +18,6 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const getClientEnvironment = require('./env');
-const theme = require(paths.appTheme);
 
 
 // Webpack uses `publicPath` to determine where the app is being served from.
@@ -41,7 +40,10 @@ const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 const lessRegex = /\.less/;
 const lessModuleRegex = /\.module\.less$/;
+// Ant Design 主题
+const lessToJs = require('less-vars-to-js');
 
+const modifyVars = lessToJs(fs.readFileSync(paths.antdTheme, 'utf8'));
 
 // common function to get style loaders
 const getStyleLoaders = (cssOptions, preProcessor, preProcessorOptions) => {
@@ -325,7 +327,7 @@ module.exports = {
             ).concat({
               loader: 'sass-resources-loader',
               options: {
-                resources: `${paths.appSrc}/theme/theme.scss`,
+                resources: paths.appTheme,
               },
             }),
           },
@@ -353,7 +355,7 @@ module.exports = {
               },
               'less-loader',
               {
-                modifyVars: theme,
+                modifyVars,
                 javascriptEnabled: true,
               },
             ),

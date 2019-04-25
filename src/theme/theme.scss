@@ -1,1 +1,5 @@
-$color: #fff;
+$af-prefix-cls: af;
+:export {
+  prefixCls: $af-prefix-cls;
+}
+$af-primary: red; // 主色调
